@@ -23,12 +23,7 @@ public class HraTest {
 
     private Postava postava1;
     private Postava postava2;
-    //== Datové atributy (statické i instancí)======================================
 
-    //== Konstruktory a tovární metody =============================================
-    //-- Testovací třída vystačí s prázdným implicitním konstruktorem ----------
-
-    //== Příprava a úklid přípravku ================================================
 
     /***************************************************************************
      * Metoda se provede před spuštěním každé testovací metody. Používá se
@@ -48,9 +43,6 @@ public class HraTest {
     public void tearDown() {
     }
 
-    //== Soukromé metody používané v testovacích metodách ==========================
-
-    //== Vlastní testovací metody ==================================================
 
     /***************************************************************************
      * Testuje průběh hry, po zavolání každěho příkazu testuje, zda hra končí
