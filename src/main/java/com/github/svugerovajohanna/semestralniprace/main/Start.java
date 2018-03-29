@@ -4,7 +4,7 @@ package com.github.svugerovajohanna.semestralniprace.main;
 
 
 import com.github.svugerovajohanna.semestralniprace.logika.*;
-import com.github.svugerovajohanna.semestralniprace.uiText.TextoveRozhrani;
+import com.github.svugerovajohanna.semestralniprace.ui.TextoveRozhrani;
 
 /*******************************************************************************
  * Třída  Start je hlavní třídou projektu,

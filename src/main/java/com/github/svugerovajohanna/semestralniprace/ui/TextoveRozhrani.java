@@ -1,4 +1,4 @@
-package com.github.svugerovajohanna.semestralniprace.uiText;
+package com.github.svugerovajohanna.semestralniprace.ui;
 
 import java.util.Scanner;
 import com.github.svugerovajohanna.semestralniprace.logika.IHra;
