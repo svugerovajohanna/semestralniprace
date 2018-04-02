@@ -25,11 +25,12 @@ public class HomeController extends GridPane {
 	
 	private IHra hra;
 	
-	/**
-	 * metoda čte příkaz ze vstupního textového pole
-	 * a zpracuje ho
-	 */
 	
+	/**
+	 * Metoda bude soužit pro předání objektu se spuštěnou hrou
+	 * kontroleru a zobrazí stav hry v grafice.
+	 * @param objekt spuštěné hry
+	 */
 	public void inicializuj(IHra hra) {
 		vystup.setText(hra.vratUvitani());
 		vystup.setEditable(false);
@@ -37,6 +38,10 @@ public class HomeController extends GridPane {
 		
 	}
 
+	/**
+	 * metoda čte příkaz ze vstupního textového pole
+	 * a zpracuje ho
+	 */
 	@FXML public void odesliPrikaz() {
 		String vystupPrikazu = hra.zpracujPrikaz(vstupniText.getText());
 		vystup.appendText("\n----------\n"+vstupniText.getText()+"\n----------\n");
@@ -48,21 +53,31 @@ public class HomeController extends GridPane {
 		}
 	}
 	
+	/**
+	 * metoda spouští novou hru pomocí stisku tlačítka v menu
+	 */
 	@FXML public void novaHra() {
 		inicializuj(new Hra());
 	}
 	
+	/**
+	 * metoda ukončuje hru pomocí stisku tlačítka v menu
+	 */
 	@FXML public void konecHry() {
 		((Hra) hra).setKonecHry(true);
-		vystup.appendText("\n----------\n"+hra.vratEpilog()+"\nUkončili jste hru pomocí tlačítka \"Konec hry\".\n----------\n");
+		vystup.appendText("\n----------\nUkončili jste hru pomocí tlačítka \"Konec hry\".\n----------\n"+hra.vratEpilog()+"\n----------\n");
 		vstupniText.setDisable(true);
 	}
 	
 	/**
-	 * Metoda bude soužit pro předání objektu se spuštěnou hrou
-	 * kontroleru a zobrazí stav hry v grafice.
-	 * @param objekt spuštěné hry
+	 * metoda zobrazí textovou nápovědu po stisknutí tlačítka "nápověda"
 	 */
+	@FXML public void napoveda() {
+		vystup.appendText("\n----------\nZobrazil jsi nápovědu:\n----------\n"+hra.zpracujPrikaz("nápověda")+"\n----------\n");
+	}
+	
+	
+
 	
 
 }
