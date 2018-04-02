@@ -1,5 +1,7 @@
 package com.github.svugerovajohanna.semestralniprace.logika;
 
+import java.util.Observable;
+
 /**
  *  Class HerniPlan - třída představující mapu a stav adventury.
  * 
@@ -11,7 +13,7 @@ package com.github.svugerovajohanna.semestralniprace.logika;
  *@author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova
  *@version    pro školní rok 2016/2017
  */
-public class HerniPlan {
+public class HerniPlan extends Observable {
 
     private Prostor aktualniProstor;
     private Prostor vyherniProstor;
@@ -40,23 +42,23 @@ public class HerniPlan {
      */
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory
-        Prostor ucBylinkarstvi = new Prostor("ucebna_bylinkarstvi","učebna bylinkářství");
-        Prostor ucKouzleni = new Prostor("ucebna_kouzleni", "učebna kouzlení");
+        Prostor ucBylinkarstvi = new Prostor("ucebna_bylinkarstvi","učebna bylinkářství",50.0,36.5);
+        Prostor ucKouzleni = new Prostor("ucebna_kouzleni", "učebna kouzlení",50.0, 90.0);
         //Prostor ucLektvaru = new Prostor("učebna_lektvarů","učebna lektvarů.\nPrávě zde probíhá hodina s profesorem Snapeem");
-        Prostor ucebny = new Prostor("ucebny","učebny, který vede do jednotlivých učeben");
-        Prostor vstupniSin = new Prostor("vstupni_sin","Vstupní síň.\nOdtud můžeš jít ven nebo prozkoumat hrad");
-        Prostor nebelvirLoznice = new Prostor("nebelvirska_loznice","nebelvírská ložnice");
-        Prostor velkaSin = new Prostor("velka_sin","Velká síň.\nTady probíhají všechny společenské akce.\nVelká síň má strop, který je začarovaný tak, aby vypadal jako opravodové nebe.");
-        Prostor schodiste = new Prostor("schodiste","schodiště, které vede do prvního patra");
-        Prostor chodba = new Prostor("chodba","chodba.\nPozor - sem bylo zákázano vstupovat", "Naštěští sis nasadil svůj neviditelný plášť a nikdo tě neviděl.");
-        Prostor mistnostChloupek = new Prostor("mistnost_s_Chloupkem",", kde je tříhlavý pes a na nečem stojí.\nVypadá to, jako padací dveře", "Zahrál jsi chloupkovi na flétnu a on usnul.\nOdsunul jsi jeho tlapy z padacích dveří na podlaze a skočil dovnitř.");
-        Prostor mistnostOsidlo = new Prostor("mistnost_s_osidlem",", který je celý zaplněný rostlinou zvanou Ďáblovo osidlo", "Díky znalostem z hodin bylinkářství víš, že na osidlo platí světlo.\nZ hůlky jsi vyslal ostrý proud světla a osidlo zmizelo.");
-        Prostor mistnostKlic = new Prostor("mistnost_s_klici",", po které poletují různé klíče", "Sednul jsi na koště, chytil správný klíč, odemknul dveře a dostal se dál.");
-        Prostor mistnostSachy = new Prostor("mistnost_s_sachy",", kterou tvoří obrovské šachové pole","Vyhrál jsi šachový turnaj, můžeš jít dál!");
-        Prostor nadvori = new Prostor("nadvori","nádvoří");
-        Prostor bouda = new Prostor("Hagridova_bouda","bouda, kde bydlí klíčník a šafář Bradavic Rubius Hagrid");
-        Prostor hriste = new Prostor("famfrpalove_hriste","famfrpálové hříště.\nZde se hraje famrfrpál a cvičí se letání");
-        Prostor mistnostKamen = new Prostor("mistnost_s_kamenem_mudrcu",", kde je schovaný kámen mudrců");
+        Prostor ucebny = new Prostor("ucebny","učebny, který vede do jednotlivých učeben", 155.0, 90.0);
+        Prostor vstupniSin = new Prostor("vstupni_sin","Vstupní síň.\nOdtud můžeš jít ven nebo prozkoumat hrad", 250.0, 90.0);
+        Prostor nebelvirLoznice = new Prostor("nebelvirska_loznice","nebelvírská ložnice",175.0, 36.5);
+        Prostor velkaSin = new Prostor("velka_sin","Velká síň.\nTady probíhají všechny společenské akce.\nVelká síň má strop, který je začarovaný tak, aby vypadal jako opravodové nebe.",87.0, 143.0);
+        Prostor schodiste = new Prostor("schodiste","schodiště, které vede do prvního patra",220.0, 143.0);
+        Prostor chodba = new Prostor("chodba","chodba.\nPozor - sem bylo zákázano vstupovat", "Naštěští sis nasadil svůj neviditelný plášť a nikdo tě neviděl.",225.0, 201.0);
+        Prostor mistnostChloupek = new Prostor("mistnost_s_Chloupkem",", kde je tříhlavý pes a na nečem stojí.\nVypadá to, jako padací dveře", "Zahrál jsi chloupkovi na flétnu a on usnul.\nOdsunul jsi jeho tlapy z padacích dveří na podlaze a skočil dovnitř.",95.0, 201.0);
+        Prostor mistnostOsidlo = new Prostor("mistnost_s_osidlem",", který je celý zaplněný rostlinou zvanou Ďáblovo osidlo", "Díky znalostem z hodin bylinkářství víš, že na osidlo platí světlo.\nZ hůlky jsi vyslal ostrý proud světla a osidlo zmizelo.", 95.0, 353.0);
+        Prostor mistnostKlic = new Prostor("mistnost_s_klici",", po které poletují různé klíče", "Sednul jsi na koště, chytil správný klíč, odemknul dveře a dostal se dál.", 200.0, 353.0);
+        Prostor mistnostSachy = new Prostor("mistnost_s_sachy",", kterou tvoří obrovské šachové pole","Vyhrál jsi šachový turnaj, můžeš jít dál!",305.0, 353.0);
+        Prostor nadvori = new Prostor("nadvori","nádvoří", 360.0, 90.0);
+        Prostor bouda = new Prostor("Hagridova_bouda","bouda, kde bydlí klíčník a šafář Bradavic Rubius Hagrid", 480.0, 90.0);
+        Prostor hriste = new Prostor("famfrpalove_hriste","famfrpálové hříště.\nZde se hraje famrfrpál a cvičí se letání", 360.0, 187.0);
+        Prostor mistnostKamen = new Prostor("mistnost_s_kamenem_mudrcu",", kde je schovaný kámen mudrců", 425.0, 353.0);
 
         // přiřazují se průchody mezi prostory (sousedící prostory)
         ucBylinkarstvi.setVychod(ucKouzleni);
@@ -160,6 +162,8 @@ public class HerniPlan {
      */
     public void setAktualniProstor(Prostor prostor) {
         aktualniProstor = prostor;
+        setChanged();
+        notifyObservers();
 
     }
 

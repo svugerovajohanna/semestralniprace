@@ -1,13 +1,21 @@
 package com.github.svugerovajohanna.semestralniprace.ui;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import com.github.svugerovajohanna.semestralniprace.logika.Hra;
 import com.github.svugerovajohanna.semestralniprace.logika.IHra;
+import com.github.svugerovajohanna.semestralniprace.logika.Vec;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.GridPane;
+import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
 
 /**
  * Kontroler, který zprostředkovává komunikaci mezi grafikou
@@ -16,12 +24,17 @@ import javafx.scene.layout.GridPane;
  * @author Filip Vencovsky, Johanna Švugerová
  *
  */
-public class HomeController extends GridPane {
+@SuppressWarnings("deprecation")
+public class HomeController extends GridPane implements Observer {
 	
 	@FXML private TextField vstupniText;
 	@FXML private TextArea vystup;
 	@FXML private MenuItem novaHra;
 	@FXML private MenuItem konecHry;
+	@FXML private ListView<String> seznamVychodu;
+	@FXML private ListView<Vec> seznamVeci;
+	@FXML private ImageView uzivatel;
+	
 	
 	private IHra hra;
 	
@@ -35,6 +48,11 @@ public class HomeController extends GridPane {
 		vystup.setText(hra.vratUvitani());
 		vystup.setEditable(false);
 		this.hra = hra;
+		//seznamVeci.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
+		seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychodyNazev());
+		uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
+		uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
+		hra.getHerniPlan().addObserver(this);
 		
 	}
 
@@ -58,6 +76,8 @@ public class HomeController extends GridPane {
 	 */
 	@FXML public void novaHra() {
 		inicializuj(new Hra());
+		vstupniText.setDisable(false);
+		
 	}
 	
 	/**
@@ -74,6 +94,16 @@ public class HomeController extends GridPane {
 	 */
 	@FXML public void napoveda() {
 		vystup.appendText("\n----------\nZobrazil jsi nápovědu:\n----------\n"+hra.zpracujPrikaz("nápověda")+"\n----------\n");
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		ObservableList<String> vychodyList = FXCollections.observableArrayList();
+		 vychodyList.addAll(hra.getHerniPlan().getAktualniProstor().getVychodyNazev());
+		 seznamVychodu.setItems(vychodyList);
+		 uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
+		 uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
+		
 	}
 	
 	

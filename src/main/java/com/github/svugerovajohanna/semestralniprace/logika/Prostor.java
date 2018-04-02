@@ -24,6 +24,9 @@ public class Prostor {
     private Set<Prostor> vychody;   // obsahuje sousední místnosti
     private Map<String, Vec> veci;
     private Map<String, Postava> postavy;
+    
+    private double x;
+    private double y;
     /**
      * Vytvoření prostoru se zadaným popisem, např. "kuchyň", "hala", "trávník
      * před domem"
@@ -32,12 +35,14 @@ public class Prostor {
      * víceslovný název bez mezer.
      * @param popis Popis prostoru
      */
-    public Prostor(String nazev, String popis) {
+    public Prostor(String nazev, String popis, double x, double y) {
         this.nazev = nazev;
         this.popis = popis;
         vychody = new HashSet<>();
         veci = new HashMap<>();
         postavy = new HashMap<>();
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -49,9 +54,11 @@ public class Prostor {
      * @param popis Popis prostoru.
      * @param potom Text, který se zobrazí v určitých prostorech, jestli jsou splněné podmínky, které se k prostoru vážou.
      */
-    public Prostor(String nazev, String popis, String potom) {
+    public Prostor(String nazev, String popis, String potom,double x, double y) {
         this.nazev = nazev;
         this.popis = popis;
+        this.x = x;
+        this.y = y;
         this.potom = potom;
         vychody = new HashSet<>();
         veci = new HashMap<>();
@@ -238,6 +245,14 @@ public class Prostor {
     public Collection<Prostor> getVychody() {
         return Collections.unmodifiableCollection(vychody);
     }
+    
+    public Collection<String> getVychodyNazev() {
+    	     	List<String> list = new ArrayList<>();
+    	     	for(Prostor prostor:vychody){
+    	     		list.add(prostor.getNazev());
+    	    	}
+    	     	return list;
+      }
 
     /**
      * Metoda která vkláda do seznamu věcí. 
@@ -273,6 +288,14 @@ public class Prostor {
      */
     public Vec odeberVec(String nazev){
         return veci.remove(nazev);
+    }
+    
+    /**
+     * metoda vrací seznam věcí v místnosti
+     * @return kolekce věcí
+     */
+    public Collection<Vec> getVeci() {
+    		return Collections.unmodifiableCollection(veci.values());
     }
 
     /**
@@ -329,6 +352,19 @@ public class Prostor {
      */
     public String getPotom(){
         return potom;
+    }
+    
+    public double getX() {
+    		return x;
+    }
+    public void setX(double x) {
+		this.x = x;
+    }
+    public double getY() {
+		return y;
+    }
+    public void setY(double y) {
+		this.y = y;
     }
 
 
