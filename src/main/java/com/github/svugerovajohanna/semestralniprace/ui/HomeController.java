@@ -30,6 +30,10 @@ public class HomeController extends GridPane {
 		vystup.appendText("\n----------\n"+vstupniText.getText()+"\n----------\n");
 		vystup.appendText(vystupPrikazu);
 		vstupniText.setText("");
+		if(hra.konecHry()) {
+			vystup.appendText("\n----------\n"+hra.vratEpilog()+"\nKonec hry.\n----------\n");
+			vstupniText.setDisable(true);
+		}
 	}
 	
 	/**
