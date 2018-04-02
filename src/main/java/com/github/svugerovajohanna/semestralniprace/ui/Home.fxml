@@ -33,8 +33,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="Soubor">
             <items>
-              <MenuItem mnemonicParsing="false" text="Nová hra" />
-              <MenuItem mnemonicParsing="false" text="Konec Hry" />
+              <MenuItem fx:id="novaHra" mnemonicParsing="false" onAction="#novaHra" text="Nová hra" />
+              <MenuItem fx:id="konecHry" mnemonicParsing="false" onAction="#konecHry" text="Konec Hry" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">

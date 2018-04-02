@@ -51,7 +51,7 @@ public class Application extends javafx.application.Application {
 		HomeController controller = loader.getController();
 		controller.inicializuj(new  Hra());
 		
-        primaryStage.setTitle("title");
+        primaryStage.setTitle("Harry Potter a Kámen mudrců");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 		
