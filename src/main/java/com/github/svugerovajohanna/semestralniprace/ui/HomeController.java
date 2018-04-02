@@ -3,6 +3,7 @@ package com.github.svugerovajohanna.semestralniprace.ui;
 import com.github.svugerovajohanna.semestralniprace.logika.IHra;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
@@ -16,6 +17,7 @@ import javafx.scene.layout.GridPane;
 public class HomeController extends GridPane {
 	
 	@FXML private TextField vstupniText;
+	@FXML private TextArea vystup;
 	
 	/**
 	 * metoda čte příkaz ze vstupního textového pole
@@ -32,6 +34,8 @@ public class HomeController extends GridPane {
 	 * @param objekt spuštěné hry
 	 */
 	public void inicializuj(IHra hra) {
+		vystup.setText(hra.vratUvitani());
+		vystup.setEditable(false);
 		
 	}
 
