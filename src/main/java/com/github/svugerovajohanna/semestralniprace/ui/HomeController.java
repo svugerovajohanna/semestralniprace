@@ -34,6 +34,7 @@ public class HomeController extends GridPane implements Observer {
 	@FXML private MenuItem konecHry;
 	@FXML private ListView<String> seznamVychodu;
 	@FXML private ListView<String> seznamVeci;
+	@FXML private ListView<String> seznamPostav;
 	@FXML private ImageView uzivatel;
 	
 	
@@ -51,6 +52,7 @@ public class HomeController extends GridPane implements Observer {
 		this.hra = hra;
 		seznamVeci.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeciNazev());
 		seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychodyNazev());
+		seznamPostav.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getPostavaNazev());
 		uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 		hra.getHerniPlan().addObserver(this);
@@ -101,14 +103,18 @@ public class HomeController extends GridPane implements Observer {
 	public void update(Observable arg0, Object arg1) {
 		ObservableList<String> vychodyList = FXCollections.observableArrayList();
 		ObservableList<String> veciList = FXCollections.observableArrayList();
+		ObservableList<String> postavyList = FXCollections.observableArrayList();
 		 vychodyList.addAll(hra.getHerniPlan().getAktualniProstor().getVychodyNazev());
 		 veciList.addAll(hra.getHerniPlan().getAktualniProstor().getVeciNazev());
+		 postavyList.addAll(hra.getHerniPlan().getAktualniProstor().getPostavaNazev());
 		 seznamVychodu.getItems().clear();
 		 seznamVychodu.setItems(vychodyList);
 		 uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		 uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 		 seznamVeci.getItems().clear();
 		 seznamVeci.setItems(veciList);
+		 seznamPostav.getItems().clear();
+		 seznamPostav.setItems(postavyList);
 		
 	}
 	

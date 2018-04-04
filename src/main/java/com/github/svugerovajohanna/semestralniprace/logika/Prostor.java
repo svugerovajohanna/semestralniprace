@@ -305,9 +305,9 @@ public class Prostor {
     }
     
     /**
-     * Metoda vrací kolekci nazvů věcí z aktuálníh prostoru.
+     * Metoda vrací kolekci nazvů věcí z aktuálního prostoru.
      * 
-     * @return Kolekce názvů věcí, které se práve nachází v aktuálním pros.
+     * @return Kolekce názvů věcí, které se práve nachází v aktuálním prostoru.
      */
     
     public Collection<String> getVeciNazev() {
@@ -354,6 +354,20 @@ public class Prostor {
     public Postava odeberPostavu(String jmeno){
         return postavy.remove(jmeno);
     }
+    
+    /**
+     * Metoda vracící kolekci postavy v aktuálním prostoru.
+     * 
+     * @return Kolekce jmen postav,  které se práve nachází v aktuálním prostoru.
+     */
+    
+    public Collection<String> getPostavaNazev() {
+    	     	List<String> list = new ArrayList<>();
+				for(Postava postava: postavy.values()){
+    	     		list.add(postava.getJmeno());
+    	    	}
+    	     	return list;
+      }
 
     /**
      * Vrací popis prostoru (byl zadán při vytváření prostoru jako parametr
