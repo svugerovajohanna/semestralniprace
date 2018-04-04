@@ -5,8 +5,6 @@ import java.util.Observer;
 
 import com.github.svugerovajohanna.semestralniprace.logika.Hra;
 import com.github.svugerovajohanna.semestralniprace.logika.IHra;
-import com.github.svugerovajohanna.semestralniprace.logika.Prostor;
-import com.github.svugerovajohanna.semestralniprace.logika.Vec;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
