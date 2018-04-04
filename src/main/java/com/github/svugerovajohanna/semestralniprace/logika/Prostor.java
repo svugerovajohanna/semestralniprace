@@ -246,6 +246,12 @@ public class Prostor {
         return Collections.unmodifiableCollection(vychody);
     }
     
+    /**
+     * Metoda vrací kolekci nazvů východů z aktuálníh prostoru.
+     * 
+     * @return Kolekce názvů prostorů (východů), se kterými daný prostor sousedí.
+     */
+    
     public Collection<String> getVychodyNazev() {
     	     	List<String> list = new ArrayList<>();
     	     	for(Prostor prostor:vychody){
@@ -354,15 +360,38 @@ public class Prostor {
         return potom;
     }
     
+    /**
+     * Metoda vrací souřednici x daného prostoru.
+     * 
+     * @return Desetinné čislo značící souřaci x prostoru.
+     */
     public double getX() {
     		return x;
     }
+    
+    /**
+     * Metoda nastavuje souřednici x daného prostoru.
+     * 
+     * @return Metoda je setter, nic nevrací.
+     */
     public void setX(double x) {
 		this.x = x;
     }
+    
+    /**
+     * Metoda vrací souřednici y daného prostoru.
+     * 
+     * @return Desetinné čislo značící souřaci y prostoru.
+     */
     public double getY() {
 		return y;
     }
+    
+    /**
+     * Metoda nastavuje souřednici y daného prostoru.
+     * 
+     * @return Metoda je setter, nic nevrací.
+     */
     public void setY(double y) {
 		this.y = y;
     }

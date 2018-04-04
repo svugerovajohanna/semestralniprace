@@ -51,8 +51,8 @@ public class ProstorTest
      */
     @Test
     public  void testLzeProjit() {      
-        Prostor prostor1 = new Prostor("hala", "vstupní hala budovy VŠE na Jižním městě");
-        Prostor prostor2 = new Prostor("bufet", "bufet, kam si můžete zajít na svačinku");
+        Prostor prostor1 = new Prostor("hala", "vstupní hala budovy VŠE na Jižním městě",1.0, 2.0);
+        Prostor prostor2 = new Prostor("bufet", "bufet, kam si můžete zajít na svačinku", 1.5, 2.5);
         prostor1.setVychod(prostor2);
         prostor2.setVychod(prostor1);
         assertEquals(prostor2, prostor1.vratSousedniProstor("bufet"));
@@ -66,7 +66,7 @@ public class ProstorTest
     @Test
     public void testVeci()
     {
-        Prostor prostor1 = new Prostor("xxx", null);
+        Prostor prostor1 = new Prostor("xxx", null, 1.1, 2.2);
         Vec vec1 = new Vec("a", true);
         Vec vec2 = new Vec("b", true);
         Vec vec3 = new Vec("a", true);
@@ -87,7 +87,7 @@ public class ProstorTest
     @Test
     public void Postav()
     {
-        Prostor prostor1 = new Prostor("xxx", null);
+        Prostor prostor1 = new Prostor("xxx", null, 3.3, 4.4);
         Vlastnost vlastnost1 = new Vlastnost("umíš_tohle");
         Vlastnost vlastnost2 = new Vlastnost("umíš_tatmto");
         Vlastnost vlastnost3 = new Vlastnost("neumis nic");
