@@ -303,6 +303,21 @@ public class Prostor {
     public Collection<Vec> getVeci() {
     		return Collections.unmodifiableCollection(veci.values());
     }
+    
+    /**
+     * Metoda vrací kolekci nazvů věcí z aktuálníh prostoru.
+     * 
+     * @return Kolekce názvů věcí, které se práve nachází v aktuálním pros.
+     */
+    
+    public Collection<String> getVeciNazev() {
+    	     	List<String> list = new ArrayList<>();
+				for(Vec vec: veci.values()){
+    	     		list.add(vec.getNazev());
+    	    	}
+    	     	return list;
+      }
+
 
     /**
      * Vklada postavu do seznamu postav

@@ -5,6 +5,7 @@ import java.util.Observer;
 
 import com.github.svugerovajohanna.semestralniprace.logika.Hra;
 import com.github.svugerovajohanna.semestralniprace.logika.IHra;
+import com.github.svugerovajohanna.semestralniprace.logika.Prostor;
 import com.github.svugerovajohanna.semestralniprace.logika.Vec;
 
 import javafx.collections.FXCollections;
@@ -32,7 +33,7 @@ public class HomeController extends GridPane implements Observer {
 	@FXML private MenuItem novaHra;
 	@FXML private MenuItem konecHry;
 	@FXML private ListView<String> seznamVychodu;
-	@FXML private ListView<Vec> seznamVeci;
+	@FXML private ListView<String> seznamVeci;
 	@FXML private ImageView uzivatel;
 	
 	
@@ -48,7 +49,7 @@ public class HomeController extends GridPane implements Observer {
 		vystup.setText(hra.vratUvitani());
 		vystup.setEditable(false);
 		this.hra = hra;
-		//seznamVeci.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
+		seznamVeci.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeciNazev());
 		seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychodyNazev());
 		uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
@@ -99,10 +100,15 @@ public class HomeController extends GridPane implements Observer {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		ObservableList<String> vychodyList = FXCollections.observableArrayList();
+		ObservableList<String> veciList = FXCollections.observableArrayList();
 		 vychodyList.addAll(hra.getHerniPlan().getAktualniProstor().getVychodyNazev());
+		 veciList.addAll(hra.getHerniPlan().getAktualniProstor().getVeciNazev());
+		 seznamVychodu.getItems().clear();
 		 seznamVychodu.setItems(vychodyList);
 		 uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		 uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
+		 seznamVeci.getItems().clear();
+		 seznamVeci.setItems(veciList);
 		
 	}
 	
