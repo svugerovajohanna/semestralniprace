@@ -34,6 +34,11 @@ public class HomeController extends GridPane implements Observer {
 	@FXML private ListView<String> seznamVeci;
 	@FXML private ListView<String> seznamPostav;
 	@FXML private ImageView uzivatel;
+	@FXML private ImageView kratiknot;
+	@FXML private ImageView hoochova;
+	@FXML private ImageView prytova;
+	@FXML private ImageView ron;
+	@FXML private ImageView hagrid;
 	
 	
 	private IHra hra;
@@ -45,6 +50,11 @@ public class HomeController extends GridPane implements Observer {
 	 * @param objekt spuštěné hry
 	 */
 	public void inicializuj(IHra hra) {
+		kratiknot.setVisible(false);
+		prytova.setVisible(false);
+		ron.setVisible(false);
+		hoochova.setVisible(false);
+		hagrid.setVisible(false);
 		vystup.setText(hra.vratUvitani());
 		vystup.setEditable(false);
 		this.hra = hra;
@@ -66,10 +76,66 @@ public class HomeController extends GridPane implements Observer {
 		vystup.appendText("\n----------\n"+vstupniText.getText()+"\n----------\n");
 		vystup.appendText(vystupPrikazu);
 		vstupniText.setText("");
-		if(hra.konecHry()) {
-			vystup.appendText("\n----------\n"+hra.vratEpilog()+"\nKonec hry.\n----------\n");
-			vstupniText.setDisable(true);
+		if(hra.getHerniPlan().getAktualniProstor().jePostavaVProstoru("Ron")) {
+			ron.setVisible(true);
 		}
+		else {
+			kratiknot.setVisible(false);
+			prytova.setVisible(false);
+			ron.setVisible(false);
+			hoochova.setVisible(false);
+			hagrid.setVisible(false);
+			
+			if(hra.getHerniPlan().getAktualniProstor().jePostavaVProstoru("Hagrid")) {
+				hagrid.setVisible(true);
+			}
+			else {
+				kratiknot.setVisible(false);
+				prytova.setVisible(false);
+				ron.setVisible(false);
+				hoochova.setVisible(false);
+				hagrid.setVisible(false);
+				
+				if(hra.getHerniPlan().getAktualniProstor().jePostavaVProstoru("profesorka_Prytova")) {
+					prytova.setVisible(true);
+				}
+				else {
+					kratiknot.setVisible(false);
+					prytova.setVisible(false);
+					ron.setVisible(false);
+					hoochova.setVisible(false);
+					hagrid.setVisible(false);
+					
+					if(hra.getHerniPlan().getAktualniProstor().jePostavaVProstoru("profesor_Kratiknot")) {
+						kratiknot.setVisible(true);
+					}
+					else {
+						kratiknot.setVisible(false);
+						prytova.setVisible(false);
+						ron.setVisible(false);
+						hoochova.setVisible(false);
+						hagrid.setVisible(false);
+						
+						if(hra.getHerniPlan().getAktualniProstor().jePostavaVProstoru("profesorka_Hoochova")) {
+							hoochova.setVisible(true);
+						}
+						else {
+							kratiknot.setVisible(false);
+							prytova.setVisible(false);
+							ron.setVisible(false);
+							hoochova.setVisible(false);
+							hagrid.setVisible(false);
+							
+							if(hra.konecHry()) {
+								vystup.appendText("\n----------\n"+hra.vratEpilog()+"\nKonec hry.\n----------\n");
+								vstupniText.setDisable(true);
+							}
+						}
+					}
+				}
+			}
+		}
+		
 	}
 	
 	/**

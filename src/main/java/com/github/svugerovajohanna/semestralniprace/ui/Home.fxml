@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.svugerovajohanna.semestralniprace.ui.HomeController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="817.0" prefWidth="1138.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.svugerovajohanna.semestralniprace.ui.HomeController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="308.5609130859375" minWidth="10.0" prefWidth="108.61821746826172" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="461.0" minWidth="5.047576904296875" prefWidth="354.9472961425781" />
@@ -29,8 +29,8 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
     <RowConstraints maxHeight="6.894573211669922" minHeight="0.0" prefHeight="5.170932769775391" vgrow="NEVER" />
     <RowConstraints maxHeight="469.57830810546875" minHeight="10.0" prefHeight="410.97442626953125" valignment="CENTER" vgrow="ALWAYS" />
-    <RowConstraints maxHeight="296.3403015136719" minHeight="192.92169189453125" prefHeight="271.0" vgrow="NEVER" />
-      <RowConstraints maxHeight="87.447265625" minHeight="56.42169189453125" prefHeight="65.5" vgrow="NEVER" />
+    <RowConstraints maxHeight="296.3403015136719" minHeight="192.92169189453125" prefHeight="270.0" vgrow="NEVER" />
+      <RowConstraints maxHeight="87.447265625" minHeight="55.5" prefHeight="66.5" vgrow="NEVER" />
   </rowConstraints>
    <children>
       <MenuBar prefHeight="29.0" prefWidth="336.0" GridPane.columnSpan="6">
@@ -68,6 +68,31 @@
                         <Image url="@harry.png" />
                      </image>
                   </ImageView>
+                  <ImageView fx:id="kratiknot" fitHeight="61.0" fitWidth="68.0" layoutX="14.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@kratiknot.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="prytova" fitHeight="75.0" fitWidth="83.0" layoutX="88.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@prytova.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ron" fitHeight="61.0" fitWidth="68.0" layoutX="55.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@ron.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="hoochova" fitHeight="61.0" fitWidth="68.0" layoutX="406.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@hooch.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="hagrid" fitHeight="61.0" fitWidth="68.0" layoutX="436.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@hagrid.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>
@@ -101,8 +126,8 @@
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="561.0654907226562" minWidth="10.0" prefWidth="547.2763671875" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="133.2364501953125" minHeight="10.0" prefHeight="121.65814208984375" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="113.28912353515625" minHeight="10.0" prefHeight="109.84185791015625" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="133.2364501953125" minHeight="10.0" prefHeight="126.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="113.28912353515625" minHeight="10.0" prefHeight="105.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <VBox prefHeight="137.0" prefWidth="368.0">
@@ -119,14 +144,14 @@
                         </ListView>
                      </children>
                   </VBox>
-                  <VBox prefHeight="115.0" prefWidth="368.0" GridPane.rowIndex="1">
+                  <VBox prefHeight="39.0" prefWidth="368.0" GridPane.rowIndex="1">
                      <children>
                         <Label text="Harry umí:">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView fx:id="dovednosti" prefHeight="105.0" prefWidth="328.0">
+                        <ListView fx:id="dovednosti" prefHeight="110.0" prefWidth="328.0">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
