@@ -33,6 +33,7 @@ public class HomeController extends GridPane implements Observer {
 	@FXML private ListView<String> seznamVychodu;
 	@FXML private ListView<String> seznamVeci;
 	@FXML private ListView<String> seznamPostav;
+	@FXML private ListView<String> dovednosti;
 	@FXML private ImageView uzivatel;
 	@FXML private ImageView kratiknot;
 	@FXML private ImageView hoochova;
@@ -61,6 +62,7 @@ public class HomeController extends GridPane implements Observer {
 		seznamVeci.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeciNazev());
 		seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychodyNazev());
 		seznamPostav.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getPostavaNazev());
+		dovednosti.getItems().addAll(hra.getHerniPlan().getDovednosti().seznamDovednosti());
 		uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 		hra.getHerniPlan().addObserver(this);
@@ -168,9 +170,11 @@ public class HomeController extends GridPane implements Observer {
 		ObservableList<String> vychodyList = FXCollections.observableArrayList();
 		ObservableList<String> veciList = FXCollections.observableArrayList();
 		ObservableList<String> postavyList = FXCollections.observableArrayList();
+		ObservableList<String> dovednostiList = FXCollections.observableArrayList();
 		 vychodyList.addAll(hra.getHerniPlan().getAktualniProstor().getVychodyNazev());
 		 veciList.addAll(hra.getHerniPlan().getAktualniProstor().getVeciNazev());
 		 postavyList.addAll(hra.getHerniPlan().getAktualniProstor().getPostavaNazev());
+		 dovednostiList.addAll(hra.getHerniPlan().getDovednosti().seznamDovednosti());
 		 seznamVychodu.getItems().clear();
 		 seznamVychodu.setItems(vychodyList);
 		 uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
@@ -179,6 +183,8 @@ public class HomeController extends GridPane implements Observer {
 		 seznamVeci.setItems(veciList);
 		 seznamPostav.getItems().clear();
 		 seznamPostav.setItems(postavyList);
+		 dovednosti.getItems().clear();
+		 dovednosti.setItems(dovednostiList);
 		
 	}
 	
