@@ -5,6 +5,7 @@ import java.util.Observer;
 
 import com.github.svugerovajohanna.semestralniprace.logika.Hra;
 import com.github.svugerovajohanna.semestralniprace.logika.IHra;
+import com.github.svugerovajohanna.semestralniprace.logika.Vec;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,6 +35,7 @@ public class HomeController extends GridPane implements Observer {
 	@FXML private ListView<String> seznamVeci;
 	@FXML private ListView<String> seznamPostav;
 	@FXML private ListView<String> dovednosti;
+	@FXML private ListView<String> kapsa;
 	@FXML private ImageView uzivatel;
 	@FXML private ImageView kratiknot;
 	@FXML private ImageView hoochova;
@@ -185,6 +187,10 @@ public class HomeController extends GridPane implements Observer {
 		 seznamPostav.setItems(postavyList);
 		 dovednosti.getItems().clear();
 		 dovednosti.setItems(dovednostiList);
+		 
+		 ObservableList<String> obsahKapsy = FXCollections.observableArrayList();
+		 obsahKapsy.addAll(hra.getHerniPlan().getKapsa().kapsaObsahuje());
+		 kapsa.setItems(obsahKapsy);
 		
 	}
 	

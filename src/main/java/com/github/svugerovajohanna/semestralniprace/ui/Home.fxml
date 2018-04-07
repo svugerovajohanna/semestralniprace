@@ -68,27 +68,27 @@
                         <Image url="@harry.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="kratiknot" fitHeight="61.0" fitWidth="68.0" layoutX="14.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="kratiknot" fitHeight="67.0" fitWidth="64.0" layoutX="14.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@kratiknot.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="prytova" fitHeight="75.0" fitWidth="83.0" layoutX="88.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="prytova" fitHeight="81.0" fitWidth="64.0" layoutX="88.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@prytova.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="ron" fitHeight="61.0" fitWidth="68.0" layoutX="55.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ron" fitHeight="67.0" fitWidth="58.0" layoutX="55.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@ron.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="hoochova" fitHeight="61.0" fitWidth="68.0" layoutX="406.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="hoochova" fitHeight="67.0" fitWidth="58.0" layoutX="406.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@hooch.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="hagrid" fitHeight="61.0" fitWidth="68.0" layoutX="436.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="hagrid" fitHeight="67.0" fitWidth="52.0" layoutX="431.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@hagrid.png" />
                      </image>
