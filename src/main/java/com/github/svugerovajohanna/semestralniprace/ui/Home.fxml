@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
@@ -13,6 +16,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
@@ -26,11 +30,12 @@
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.865966796875" minWidth="10.0" prefWidth="206.865966796875" />
   </columnConstraints>
   <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-    <RowConstraints maxHeight="469.57830810546875" minHeight="10.0" prefHeight="420.0" valignment="CENTER" vgrow="ALWAYS" />
-    <RowConstraints maxHeight="296.3403015136719" minHeight="192.92169189453125" prefHeight="270.0" vgrow="NEVER" />
-      <RowConstraints maxHeight="87.447265625" minHeight="55.5" prefHeight="66.5" vgrow="NEVER" />
+      <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="33.0" vgrow="NEVER" />
+      <RowConstraints maxHeight="21.0" minHeight="0.0" prefHeight="14.0" vgrow="NEVER" />
+    <RowConstraints maxHeight="491.0" minHeight="10.0" prefHeight="455.0" valignment="CENTER" vgrow="ALWAYS" />
+    <RowConstraints maxHeight="296.3403015136719" minHeight="176.0" prefHeight="207.0" vgrow="NEVER" />
+      <RowConstraints maxHeight="87.447265625" minHeight="21.5" prefHeight="49.5" vgrow="NEVER" />
+      <RowConstraints maxHeight="87.447265625" minHeight="55.5" prefHeight="60.5" vgrow="NEVER" />
   </rowConstraints>
    <children>
       <MenuBar prefHeight="55.0" prefWidth="1138.0" GridPane.columnSpan="6">
@@ -106,9 +111,50 @@
                </VBox.margin>
             </TextArea>
          </children></VBox>
-      <VBox GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
+      <VBox GridPane.columnSpan="2147483647" GridPane.rowIndex="4" GridPane.rowSpan="2">
          <children>
             <Label text="Zadej příkaz" />
+            <HBox>
+               <children>
+                  <ComboBox fx:id="prik" onAction="#comboPrikaz" prefWidth="150.0" promptText="Vyber příkaz">
+                  	<items>
+                  		<FXCollections fx:factory="observableArrayList">
+                  			<String fx:value="jdi" />
+                  			<String fx:value="seber" />
+                  			<String fx:value="vyhod" />
+                  			<String fx:value="mluv" />
+                  			<String fx:value="prozkoumej" />
+                  			<String fx:value="napoveda" />
+                  			<String fx:value="kapsa" />
+                  			<String fx:value="dovednosti" />
+                  			
+                  		</FXCollections>
+                  	</items>
+                  </ComboBox>
+                  <ComboBox fx:id="vych" onAction="#comboVychod" prefWidth="150.0" promptText="Vyber východ">
+                  	<items>
+                  		<FXCollections fx:factory="observableArrayList">
+                  			<String fx:value="ucebny" />
+                  			<String fx:value="nadvori" />
+                  			<String fx:value="vstupni_sin" />
+                  			<String fx:value="velka_sin" />
+                  			<String fx:value="ucebna_bylinkarstvi" />
+                  			<String fx:value="ucebna_kouzleni" />
+                  			<String fx:value="Hagridova_bouda" />
+                  			<String fx:value="famfrpalove_hriste" />
+                  			<String fx:value="schodiste" />
+                  			<String fx:value="nebelvirska_loznice" />
+                  			<String fx:value="chodba" />
+                  			<String fx:value="mistnost_s_Chloupkem" />
+                  			<String fx:value="mistnost_s_osidlem" />
+                  			<String fx:value="mistnost_s_klici" />
+                  			<String fx:value="mistnost_s_sachy" />
+                  			<String fx:value="mistnost_s_kamenem_mudrcu" />
+                  		</FXCollections>
+                  	</items>
+                  </ComboBox>
+               </children>
+            </HBox>
             <TextField fx:id="vstupniText" onAction="#odesliPrikaz" />
          </children>
          <GridPane.margin>

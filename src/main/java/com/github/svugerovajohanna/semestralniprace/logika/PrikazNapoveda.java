@@ -10,7 +10,7 @@ package com.github.svugerovajohanna.semestralniprace.logika;
  */
 class PrikazNapoveda implements IPrikaz {
     
-    private static final String NAZEV = "nápověda";
+    private static final String NAZEV = "napoveda";
     private SeznamPrikazu platnePrikazy;
     
     

@@ -17,6 +17,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
@@ -46,6 +47,8 @@ public class HomeController extends GridPane implements Observer {
 	@FXML private ImageView prytova;
 	@FXML private ImageView ron;
 	@FXML private ImageView hagrid;
+	@FXML private ComboBox vych;
+	@FXML private ComboBox prik;
 	
 	private final Image OBR_PLAST = new Image(getClass().getResourceAsStream("plast.png"), 50, 50, false, false);
 	private final Image OBR_KOSTE = new Image(getClass().getResourceAsStream("koste.png"), 50, 50, false, false);
@@ -58,6 +61,8 @@ public class HomeController extends GridPane implements Observer {
 	private Image [] listOfImages = {OBR_PLAST, OBR_KOSTE, OBR_PONOZKA, OBR_FLETNA, OBR_KLOBOUK, OBR_KAMEN, OBR_KNIHA};
 	
 	private IHra hra;
+	private String prikaz;
+	
 	
 	
 	/**
@@ -66,6 +71,7 @@ public class HomeController extends GridPane implements Observer {
 	 * @param objekt spuštěné hry
 	 */
 	public void inicializuj(IHra hra) {
+		vych.setDisable(true);
 		kratiknot.setVisible(false);
 		prytova.setVisible(false);
 		ron.setVisible(false);
@@ -95,8 +101,12 @@ public class HomeController extends GridPane implements Observer {
 	 * a zpracuje ho
 	 */
 	@FXML public void odesliPrikaz() {
-		String vystupPrikazu = hra.zpracujPrikaz(vstupniText.getText());
-		vystup.appendText("\n----------\n"+vstupniText.getText()+"\n----------\n");
+		String vstupPrikazu = vstupniText.getText();
+		if(prikaz != null ){
+			prikaz += " " + vstupPrikazu;
+		}
+		String vystupPrikazu = hra.zpracujPrikaz(prikaz);
+		vystup.appendText("\n----------\n"+ prikaz+"\n----------\n");
 		vystup.appendText(vystupPrikazu);
 		vstupniText.setText("");
 		if(hra.getHerniPlan().getAktualniProstor().jePostavaVProstoru("Ron")) {
@@ -196,6 +206,31 @@ public class HomeController extends GridPane implements Observer {
 		stage.show();
 		
 	}
+	
+	@FXML public void comboPrikaz() {
+		vstupniText.clear();
+		prikaz = prik.getSelectionModel().getSelectedItem().toString();
+		if(prikaz.equals("jdi")) {
+			vych.setDisable(false);
+			prik.setDisable(true);
+		}
+		else {
+			String vystupPrikazu = hra.zpracujPrikaz(prikaz);
+			vystup.appendText("\n----------\n"+ prikaz+"\n----------\n");
+			vystup.appendText(vystupPrikazu);
+		}
+	}
+	
+	@FXML public void comboVychod() {
+		prikaz += " " + vych.getSelectionModel().getSelectedItem().toString();
+		vystup.appendText("\n----------\n"+prikaz+"\n----------\n");
+		vystup.appendText(hra.zpracujPrikaz(prikaz));
+		
+		vstupniText.clear();
+		prik.setDisable(false);
+		vych.setDisable(true);
+		
+	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
@@ -244,7 +279,7 @@ public class HomeController extends GridPane implements Observer {
 						 obrazek.setImage(ron.getImage());
 					 }
 					 obrazek.setFitHeight(68);
-					 obrazek.setFitWidth(61);
+					 obrazek.setFitWidth(59);
 					 setText(post);
 					 setGraphic(obrazek);
 				 }
