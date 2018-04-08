@@ -29,7 +29,6 @@ import javafx.scene.image.ImageView;
  * @author Filip Vencovsky, Johanna Švugerová
  *
  */
-@SuppressWarnings("deprecation")
 public class HomeController extends GridPane implements Observer {
 	
 	@FXML private TextField vstupniText;
@@ -75,10 +74,16 @@ public class HomeController extends GridPane implements Observer {
 		vystup.setText(hra.vratUvitani());
 		vystup.setEditable(false);
 		this.hra = hra;
+		seznamVeci.getItems().clear();
 		seznamVeci.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeciNazev());
+		seznamVychodu.getItems().clear();
 		seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychodyNazev());
+		seznamPostav.getItems().clear();
 		seznamPostav.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getPostavaNazev());
+		dovednosti.getItems().clear();
 		dovednosti.getItems().addAll(hra.getHerniPlan().getDovednosti().seznamDovednosti());
+		kapsa.getItems().clear();
+		kapsa.getItems().addAll(hra.getHerniPlan().getKapsa().getVeciVKapse());
 		uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 		hra.getHerniPlan().addObserver(this);
@@ -210,12 +215,48 @@ public class HomeController extends GridPane implements Observer {
 		 seznamVeci.setItems(veciList);
 		 seznamPostav.getItems().clear();
 		 seznamPostav.setItems(postavyList);
+		 
+		 seznamPostav.setCellFactory(param -> new ListCell<String>(){
+			 private ImageView obrazek = new ImageView();
+			 
+			 @Override
+			 public void updateItem(String post, boolean empty) {
+				 super.updateItem(post, empty);
+				 if(empty) {
+					 setText(null);
+					 setGraphic(null);
+				 }
+				 else {
+					 if(post.equals("Hagrid")) {
+						 obrazek.setImage(hagrid.getImage());
+						 
+					 }
+					 else if(post.equals("profesorka_Prytova")){
+						 obrazek.setImage(prytova.getImage());
+					 }
+					 else if(post.equals("profesorka_Hoochova")) {
+						 obrazek.setImage(hoochova.getImage());
+					 }
+					 else if(post.equals("profesor_Kratiknot")) {
+						 obrazek.setImage(kratiknot.getImage());
+					 }
+					 else if(post.equals("Ron")) {
+						 obrazek.setImage(ron.getImage());
+					 }
+					 obrazek.setFitHeight(68);
+					 obrazek.setFitWidth(61);
+					 setText(post);
+					 setGraphic(obrazek);
+				 }
+			 
+			 }}); 
+		 
 		 dovednosti.getItems().clear();
 		 dovednosti.setItems(dovednostiList);
 		 
 		 ObservableList<String> obsahKapsy = FXCollections.observableArrayList();
 		 obsahKapsy.addAll(hra.getHerniPlan().getKapsa().getVeciVKapse());
-		 //kapsa.getItems().clear();
+		 kapsa.getItems().clear();
 		 kapsa.setItems(obsahKapsy);
 	
 		 kapsa.setCellFactory(param -> new ListCell<String>(){

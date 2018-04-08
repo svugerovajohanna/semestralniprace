@@ -123,78 +123,79 @@
             <GridPane prefHeight="231.0" prefWidth="1098.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="557.6182250976562" minWidth="10.0" prefWidth="550.7236328125" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="561.0654907226562" minWidth="10.0" prefWidth="547.2763671875" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="561.0654907226562" minWidth="10.0" prefWidth="547.2763671875" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="561.0654907226562" minWidth="10.0" prefWidth="547.2763671875" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="133.2364501953125" minHeight="10.0" prefHeight="126.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="113.28912353515625" minHeight="10.0" prefHeight="105.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="133.2364501953125" minHeight="10.0" prefHeight="112.8687744140625" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="131.262451171875" minHeight="10.0" prefHeight="118.1312255859375" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <VBox prefHeight="137.0" prefWidth="368.0">
+                  <VBox prefHeight="137.0" prefWidth="368.0" GridPane.rowSpan="2">
                      <children>
                         <Label text="Východy:">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView fx:id="seznamVychodu" prefHeight="97.0" prefWidth="328.0">
+                        <ListView fx:id="seznamVychodu" prefHeight="213.0" prefWidth="237.0">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
                         </ListView>
                      </children>
                   </VBox>
-                  <VBox prefHeight="39.0" prefWidth="368.0" GridPane.rowIndex="1">
+                  <VBox prefHeight="39.0" prefWidth="368.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
                         <Label text="Harry umí:">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView fx:id="dovednosti" prefHeight="110.0" prefWidth="328.0">
+                        <ListView fx:id="dovednosti" prefHeight="127.0" prefWidth="234.0">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
                         </ListView>
                      </children>
                   </VBox>
-                  <VBox prefHeight="120.0" prefWidth="365.0" GridPane.columnIndex="1">
+                  <VBox prefHeight="120.0" prefWidth="365.0" GridPane.columnIndex="1" GridPane.rowSpan="2">
                      <children>
                         <Label text="Věci v místnosti:">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView fx:id="seznamVeci" prefHeight="97.0" prefWidth="325.0">
+                        <ListView fx:id="seznamVeci" prefHeight="215.0" prefWidth="234.0">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
                         </ListView>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <VBox prefHeight="108.0" prefWidth="274.0" GridPane.columnIndex="2">
                      <children>
                         <Label text="Postavy v místnosti:">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView fx:id="seznamPostav" prefHeight="122.0" prefWidth="325.0">
+                        <ListView fx:id="seznamPostav" prefHeight="89.0" prefWidth="234.0">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
                         </ListView>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowSpan="2">
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowSpan="2">
                      <children>
                         <Label text="Harry má v kapse:">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView fx:id="kapsa" prefHeight="229.0" prefWidth="326.0">
+                        <ListView fx:id="kapsa" prefHeight="214.0" prefWidth="244.0">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
