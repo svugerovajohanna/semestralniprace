@@ -112,7 +112,7 @@ public class Kapsa
     }
 
     /**
-     * Vypisuje obsah kapsy
+     * Vypisuje obsah kapsy.
      * 
      * @return vraceny text - retezec, ktery obsahuje veci, ktere jsou obsazene v kapse, oddělené mezerou
      */
@@ -124,6 +124,21 @@ public class Kapsa
 
         return vracenyText;
     }
+    
+   
+    
+    /**
+     * Metoda vrací názvy věcí obsažených v kapse jako list
+     * 
+     * @return List věcí, které má Harry právě v kapse.
+     */
+    public Collection<String> getVeciVKapse() {
+     	List<String> list = new ArrayList<>();
+		for(Vec vec: seznam.values()){
+     		list.add(vec.getNazev());
+    	}
+     	return list;
+}
     //\IP== PRIVATE AND AUXILIARY INSTANCE METHODS =================================
 
 

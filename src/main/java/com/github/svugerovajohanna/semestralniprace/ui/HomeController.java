@@ -14,7 +14,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.GridPane;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
@@ -43,6 +45,15 @@ public class HomeController extends GridPane implements Observer {
 	@FXML private ImageView ron;
 	@FXML private ImageView hagrid;
 	
+	private final Image OBR_PLAST = new Image(getClass().getResourceAsStream("plast.png"), 50, 50, false, false);
+	private final Image OBR_KOSTE = new Image(getClass().getResourceAsStream("koste.png"), 50, 50, false, false);
+	private final Image OBR_PONOZKA = new Image(getClass().getResourceAsStream("ponozka.png"), 50, 50, false, false);
+	private final Image OBR_FLETNA = new Image(getClass().getResourceAsStream("fletna.png"), 50, 50, false, false);
+	private final Image OBR_KLOBOUK = new Image(getClass().getResourceAsStream("moudry_klobouk.png"), 50, 50, false, false);
+	private final Image OBR_KAMEN = new Image(getClass().getResourceAsStream("kamen.png"), 50, 50, false, false);
+	private final Image OBR_KNIHA = new Image(getClass().getResourceAsStream("kniha2.png"), 50, 50, false, false);
+	
+	private Image [] listOfImages = {OBR_PLAST, OBR_KOSTE, OBR_PONOZKA, OBR_FLETNA, OBR_KLOBOUK, OBR_KAMEN, OBR_KNIHA};
 	
 	private IHra hra;
 	
@@ -189,13 +200,50 @@ public class HomeController extends GridPane implements Observer {
 		 dovednosti.setItems(dovednostiList);
 		 
 		 ObservableList<String> obsahKapsy = FXCollections.observableArrayList();
-		 obsahKapsy.addAll(hra.getHerniPlan().getKapsa().kapsaObsahuje());
+		 obsahKapsy.addAll(hra.getHerniPlan().getKapsa().getVeciVKapse());
+		 //kapsa.getItems().clear();
 		 kapsa.setItems(obsahKapsy);
+	
+		 kapsa.setCellFactory(param -> new ListCell<String>(){
+			 private ImageView obrazek = new ImageView();
+			 
+			 @Override
+			 public void updateItem(String vecicka, boolean empty) {
+				 super.updateItem(vecicka, empty);
+				 if(empty) {
+					 setText(null);
+					 setGraphic(null);
+				 }
+				 else {
+					 if(vecicka.equals("neviditelny_plast")) {
+						 obrazek.setImage(listOfImages[0]);
+					 }
+					 else if(vecicka.equals("letajici_koste")) {
+						 obrazek.setImage(listOfImages[1]);
+					 }
+					 else if (vecicka.equals("Nevillova_ponozka")) {
+						 obrazek.setImage(listOfImages[2]);
+					 }
+					 else if(vecicka.equals("fletna")) {
+						 obrazek.setImage(listOfImages[3]);
+					 }
+					 else if(vecicka.equals("moudry_klobouk")) {
+						 obrazek.setImage(listOfImages[4]);
+					 }
+					 else if(vecicka.equals("kaminek")) {
+						 obrazek.setImage(listOfImages[5]);
+					 }
+					 else if(vecicka.equals("knizka")) {
+						 obrazek.setImage(listOfImages[6]);
+					 }
+					 setText(vecicka);
+					 setGraphic(obrazek);
+					
+				 }
+			 }
+		 });
 		
 	}
 	
-	
-
-	
-
-}
+	}
+		

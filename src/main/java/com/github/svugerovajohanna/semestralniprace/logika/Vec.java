@@ -2,7 +2,7 @@
  * Kontrola kódování: Příliš žluťoučký kůň úpěl ďábelské ódy. */
 package com.github.svugerovajohanna.semestralniprace.logika;
 
-
+import java.util.Observable;
 /*******************************************************************************
  * Třída Vec - popisuje jednotlivé věci vyskytující se ve hře. 
  * 
@@ -14,7 +14,7 @@ package com.github.svugerovajohanna.semestralniprace.logika;
  * @author    Johanna Švugerová
  * @version   pro školní rok 2016/2017
  */
-public class Vec
+public class Vec extends Observable
 {
     //== Datové atributy (statické i instancí)======================================
     private String nazev;
