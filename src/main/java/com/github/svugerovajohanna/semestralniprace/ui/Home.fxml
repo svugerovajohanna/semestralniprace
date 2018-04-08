@@ -27,13 +27,13 @@
   </columnConstraints>
   <rowConstraints>
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-    <RowConstraints maxHeight="6.894573211669922" minHeight="0.0" prefHeight="5.170932769775391" vgrow="NEVER" />
-    <RowConstraints maxHeight="469.57830810546875" minHeight="10.0" prefHeight="410.97442626953125" valignment="CENTER" vgrow="ALWAYS" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+    <RowConstraints maxHeight="469.57830810546875" minHeight="10.0" prefHeight="420.0" valignment="CENTER" vgrow="ALWAYS" />
     <RowConstraints maxHeight="296.3403015136719" minHeight="192.92169189453125" prefHeight="270.0" vgrow="NEVER" />
       <RowConstraints maxHeight="87.447265625" minHeight="55.5" prefHeight="66.5" vgrow="NEVER" />
   </rowConstraints>
    <children>
-      <MenuBar prefHeight="29.0" prefWidth="336.0" GridPane.columnSpan="6">
+      <MenuBar prefHeight="55.0" prefWidth="1138.0" GridPane.columnSpan="6">
         <menus>
           <Menu mnemonicParsing="false" text="Soubor">
             <items>
@@ -43,12 +43,13 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Nápověda">
             <items>
-              <MenuItem fx:id="napoveda" mnemonicParsing="false" onAction="#napoveda" text="Zobrazit nápovědu" />
+                  <MenuItem mnemonicParsing="false" onAction="#prirucka" text="Zobrazit uživatelskou příručku" />
+              <MenuItem fx:id="napoveda" mnemonicParsing="false" onAction="#napoveda" text="Zobrazit nápovědu ve hře" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <VBox GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <VBox prefHeight="426.0" prefWidth="715.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>

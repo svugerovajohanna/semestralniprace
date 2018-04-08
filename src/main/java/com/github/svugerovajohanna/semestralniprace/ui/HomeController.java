@@ -14,6 +14,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.GridPane;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
@@ -176,6 +179,17 @@ public class HomeController extends GridPane implements Observer {
 	 */
 	@FXML public void napoveda() {
 		vystup.appendText("\n----------\nZobrazil jsi nápovědu:\n----------\n"+hra.zpracujPrikaz("nápověda")+"\n----------\n");
+	}
+	
+	@FXML public void prirucka() {
+		Stage stage = new Stage ();
+		stage.setTitle("Uživatelská příručka");
+		
+		WebView webView = new WebView();
+		webView.getEngine().load(getClass().getResource("prirucka.html").toExternalForm());
+		stage.setScene(new Scene(webView, 800, 600));
+		stage.show();
+		
 	}
 
 	@Override
