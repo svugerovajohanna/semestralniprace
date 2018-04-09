@@ -53,7 +53,7 @@ public class HomeController extends GridPane implements Observer {
 	private final Image OBR_KOSTE = new Image(getClass().getResourceAsStream("koste.png"), 50, 50, false, false);
 	private final Image OBR_PONOZKA = new Image(getClass().getResourceAsStream("ponozka.png"), 50, 50, false, false);
 	private final Image OBR_FLETNA = new Image(getClass().getResourceAsStream("fletna.png"), 50, 50, false, false);
-	private final Image OBR_KLOBOUK = new Image(getClass().getResourceAsStream("moudry_klobouk.png"), 50, 50, false, false);
+	private final Image OBR_KLOBOUK = new Image(getClass().getResourceAsStream("moudryklobouk.png"), 50, 50, false, false);
 	private final Image OBR_KAMEN = new Image(getClass().getResourceAsStream("kamen.png"), 50, 50, false, false);
 	private final Image OBR_KNIHA = new Image(getClass().getResourceAsStream("kniha2.png"), 50, 50, false, false);
 	private final Image 	OBR_STROM = new Image(getClass().getResourceAsStream("strom.png"), 50, 50, false, false);

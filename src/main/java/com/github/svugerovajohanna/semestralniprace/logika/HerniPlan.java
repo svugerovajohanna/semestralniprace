@@ -104,7 +104,7 @@ public class HerniPlan extends Observable {
         Vec kreslo = new Vec("kreslo",false);
         Vec postel = new Vec("postel",false);
         Vec stul = new Vec("stul",false);
-        Vec klobouk = new Vec("moudry_kloubok",true);
+        Vec klobouk = new Vec("moudry_klobouk",true);
         Vec kaminek = new Vec("kaminek",true);
         Vec obraz  = new Vec("obraz",false);
 
