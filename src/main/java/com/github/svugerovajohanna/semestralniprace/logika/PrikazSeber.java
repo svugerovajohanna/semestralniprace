@@ -52,7 +52,11 @@ public class PrikazSeber implements IPrikaz {
         }
         else {
             if(sbirana.jePrenositelna()){
-                return kapsa.pridejDoKapsy(sbirana);
+            		String pom = kapsa.pridejDoKapsy(sbirana);
+            		if(pom.equals("Nemáš místo v kapse. Musíš něco odebrat!")) {
+            			aktualniProstor.vlozVec(sbirana);
+            		}
+                return pom;
             }
             else{
                 aktualniProstor.vlozVec(sbirana);
