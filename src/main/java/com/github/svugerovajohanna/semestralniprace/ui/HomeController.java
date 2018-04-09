@@ -152,7 +152,7 @@ public class HomeController extends GridPane implements Observer {
 		seznamPostav.getItems().clear();
 		seznamPostav.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getPostavaNazev());
 		dovednosti.getItems().clear();
-		dovednosti.getItems().addAll(hra.getHerniPlan().getDovednosti().seznamDovednosti());
+		dovednosti.getItems().addAll(hra.getHerniPlan().getDovednosti().getDovednostiAsList());
 		kapsa.getItems().clear();
 		kapsa.getItems().addAll(hra.getHerniPlan().getKapsa().getVeciVKapse());
 		uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
@@ -332,7 +332,7 @@ public class HomeController extends GridPane implements Observer {
 		 vychodyList.addAll(hra.getHerniPlan().getAktualniProstor().getVychodyNazev());
 		 veciList.addAll(hra.getHerniPlan().getAktualniProstor().getVeciNazev());
 		 postavyList.addAll(hra.getHerniPlan().getAktualniProstor().getPostavaNazev());
-		 dovednostiList.addAll(hra.getHerniPlan().getDovednosti().seznamDovednosti());
+		 dovednostiList.addAll(hra.getHerniPlan().getDovednosti().getDovednostiAsList());
 		 seznamVychodu.getItems().clear();
 		 seznamVychodu.setItems(vychodyList);
 		 uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());

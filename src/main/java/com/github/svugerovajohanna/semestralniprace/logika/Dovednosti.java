@@ -97,6 +97,20 @@ public class Dovednosti
 
         return vracenyText;
     }
+    
+    /**
+     * Metoda vrací dovednosti, které Harry umí, jako list.
+     * 
+     * @return List dovedností, které Harry aktuálně umí
+     */
+    public Collection<String> getDovednostiAsList() {
+     	List<String> list = new ArrayList<>();
+		for(String dov: dovednosti.keySet()) {
+			list.add(dov);
+		}
+    	
+     	return list;
+    }
     //\IP== PRIVATE AND AUXILIARY INSTANCE METHODS =================================
 
     //##############################################################################
