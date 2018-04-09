@@ -263,6 +263,9 @@ public class HomeController extends GridPane implements Observer {
 		vystup.appendText("\n----------\nZobrazil jsi nápovědu:\n----------\n"+hra.zpracujPrikaz("nápověda")+"\n----------\n");
 	}
 	
+	/**
+	 * Metoda zobrazí uživatelskou příručku jako html soubor v novém okně.
+	 */
 	@FXML public void prirucka() {
 		Stage stage = new Stage ();
 		stage.setTitle("Uživatelská příručka");
@@ -274,6 +277,11 @@ public class HomeController extends GridPane implements Observer {
 		
 	}
 	
+	/**
+	 * Metoda zpracuje vybraný příkaz z comboboxu.
+	 * Pokud je vybraný příkaz "jdi", je umožněné vybrat z východů dalšího comboxu.
+	 * 
+	 */
 	@FXML public void comboPrikaz() {
 		vstupniText.clear();
 		if(prik.getValue() != null) {
@@ -293,6 +301,10 @@ public class HomeController extends GridPane implements Observer {
 		
 	}
 	
+	/**
+	 * Metoda comboxu se seznamem východů, který se zprovozní pouze při vybrání příkazu "jdi"
+	 * z comboboxu s příkazy. Spolu s vybraným východem zpracuje příkaz "jdi  vybraný_východ".
+	 */
 	@FXML public void comboVychod() {
 		prikaz += " " + vych.getSelectionModel().getSelectedItem().toString();
 		vystup.appendText("\n----------\n"+prikaz+"\n----------\n");
@@ -308,6 +320,9 @@ public class HomeController extends GridPane implements Observer {
 		
 	}
 
+	/**
+	 * Metoda aktulizující seznamy(vychodu, veci v prostoru , postav, dovednosti a veci v kapse) a polohy obrazku uzivatel s využitím observeru.
+	 */
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		ObservableList<String> vychodyList = FXCollections.observableArrayList();
