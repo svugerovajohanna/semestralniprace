@@ -33,9 +33,10 @@
       <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="33.0" vgrow="NEVER" />
       <RowConstraints maxHeight="21.0" minHeight="0.0" prefHeight="14.0" vgrow="NEVER" />
     <RowConstraints maxHeight="491.0" minHeight="10.0" prefHeight="455.0" valignment="CENTER" vgrow="ALWAYS" />
-    <RowConstraints maxHeight="296.3403015136719" minHeight="176.0" prefHeight="207.0" vgrow="NEVER" />
-      <RowConstraints maxHeight="87.447265625" minHeight="21.5" prefHeight="49.5" vgrow="NEVER" />
-      <RowConstraints maxHeight="87.447265625" minHeight="55.5" prefHeight="60.5" vgrow="NEVER" />
+    <RowConstraints maxHeight="296.3403015136719" minHeight="176.0" prefHeight="238.0" vgrow="NEVER" />
+      <RowConstraints maxHeight="87.447265625" minHeight="9.5" prefHeight="15.5" vgrow="NEVER" />
+      <RowConstraints maxHeight="87.447265625" minHeight="21.5" prefHeight="39.5" vgrow="NEVER" />
+      <RowConstraints maxHeight="87.447265625" minHeight="49.5" prefHeight="49.5" vgrow="NEVER" />
   </rowConstraints>
    <children>
       <MenuBar prefHeight="55.0" prefWidth="1138.0" GridPane.columnSpan="6">
@@ -89,7 +90,7 @@
                         <Image url="@ron.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="hoochova" fitHeight="67.0" fitWidth="58.0" layoutX="406.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="hoochova" fitHeight="67.0" fitWidth="63.0" layoutX="406.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@hooch.png" />
                      </image>
@@ -111,12 +112,12 @@
                </VBox.margin>
             </TextArea>
          </children></VBox>
-      <VBox GridPane.columnSpan="2147483647" GridPane.rowIndex="4" GridPane.rowSpan="2">
+      <VBox GridPane.columnSpan="2147483647" GridPane.rowIndex="5" GridPane.rowSpan="2">
          <children>
-            <Label text="Zadej příkaz" />
             <HBox>
                <children>
-                  <ComboBox fx:id="prik" onAction="#comboPrikaz" prefWidth="150.0" promptText="Vyber příkaz">
+                  <Label prefHeight="26.0" prefWidth="90.0" text="Vyber příkaz:" />
+                  <ComboBox fx:id="prik" onAction="#comboPrikaz" prefWidth="150.0">
                   	<items>
                   		<FXCollections fx:factory="observableArrayList">
                   			<String fx:value="jdi" />
@@ -131,7 +132,8 @@
                   		</FXCollections>
                   	</items>
                   </ComboBox>
-                  <ComboBox fx:id="vych" onAction="#comboVychod" prefWidth="150.0" promptText="Vyber východ">
+                  <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="98.0" text="Vyber východ:" />
+                  <ComboBox fx:id="vych" onAction="#comboVychod" prefWidth="150.0">
                   	<items>
                   		<FXCollections fx:factory="observableArrayList">
                   			<String fx:value="ucebny" />
@@ -155,6 +157,7 @@
                   </ComboBox>
                </children>
             </HBox>
+            <Label text="Zadej příkaz:" />
             <TextField fx:id="vstupniText" onAction="#odesliPrikaz" />
          </children>
          <GridPane.margin>
@@ -174,8 +177,8 @@
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="561.0654907226562" minWidth="10.0" prefWidth="547.2763671875" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="133.2364501953125" minHeight="10.0" prefHeight="112.8687744140625" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="131.262451171875" minHeight="10.0" prefHeight="118.1312255859375" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="133.2364501953125" minHeight="10.0" prefHeight="94.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="131.262451171875" minHeight="10.0" prefHeight="119.5" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <VBox prefHeight="137.0" prefWidth="368.0" GridPane.rowSpan="2">
@@ -192,7 +195,7 @@
                         </ListView>
                      </children>
                   </VBox>
-                  <VBox prefHeight="39.0" prefWidth="368.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <VBox prefHeight="143.0" prefWidth="274.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
                         <Label text="Harry umí:">
                            <VBox.margin>
@@ -222,7 +225,7 @@
                   </VBox>
                   <VBox prefHeight="108.0" prefWidth="274.0" GridPane.columnIndex="2">
                      <children>
-                        <Label text="Postavy v místnosti:">
+                        <Label text="Postava v místnosti:">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>

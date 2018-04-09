@@ -5,8 +5,6 @@ import java.util.Observer;
 
 import com.github.svugerovajohanna.semestralniprace.logika.Hra;
 import com.github.svugerovajohanna.semestralniprace.logika.IHra;
-import com.github.svugerovajohanna.semestralniprace.logika.Vec;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,6 +16,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.SelectionModel;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
@@ -47,8 +46,8 @@ public class HomeController extends GridPane implements Observer {
 	@FXML private ImageView prytova;
 	@FXML private ImageView ron;
 	@FXML private ImageView hagrid;
-	@FXML private ComboBox vych;
-	@FXML private ComboBox prik;
+	@FXML private ComboBox<String> vych;
+	@FXML private ComboBox<String> prik;
 	
 	private final Image OBR_PLAST = new Image(getClass().getResourceAsStream("plast.png"), 50, 50, false, false);
 	private final Image OBR_KOSTE = new Image(getClass().getResourceAsStream("koste.png"), 50, 50, false, false);
@@ -104,9 +103,11 @@ public class HomeController extends GridPane implements Observer {
 		String vstupPrikazu = vstupniText.getText();
 		if(prikaz != null ){
 			prikaz += " " + vstupPrikazu;
+			vstupPrikazu = prikaz;
 		}
-		String vystupPrikazu = hra.zpracujPrikaz(prikaz);
-		vystup.appendText("\n----------\n"+ prikaz+"\n----------\n");
+		String vystupPrikazu = hra.zpracujPrikaz(vstupPrikazu);
+		prik.getSelectionModel().clearSelection();
+		vystup.appendText("\n----------\n"+ vstupPrikazu +"\n----------\n");
 		vystup.appendText(vystupPrikazu);
 		vstupniText.setText("");
 		if(hra.getHerniPlan().getAktualniProstor().jePostavaVProstoru("Ron")) {
@@ -209,26 +210,35 @@ public class HomeController extends GridPane implements Observer {
 	
 	@FXML public void comboPrikaz() {
 		vstupniText.clear();
-		prikaz = prik.getSelectionModel().getSelectedItem().toString();
-		if(prikaz.equals("jdi")) {
+		if(prik.getValue() != null) {
+			prikaz = prik.getSelectionModel().getSelectedItem().toString();
+			if(prikaz.equals("jdi")) {
 			vych.setDisable(false);
-			prik.setDisable(true);
+			prik.setDisable(true);	
+			}
+			else if (prik.getValue() != null){
+				String vystupPrikazu = hra.zpracujPrikaz(prikaz);
+				vystup.appendText("\n----------\n"+ prikaz+"\n----------\n");
+				vystup.appendText(vystupPrikazu);
+				prikaz = null;
+			}
 		}
-		else {
-			String vystupPrikazu = hra.zpracujPrikaz(prikaz);
-			vystup.appendText("\n----------\n"+ prikaz+"\n----------\n");
-			vystup.appendText(vystupPrikazu);
-		}
+		
+		
 	}
 	
 	@FXML public void comboVychod() {
 		prikaz += " " + vych.getSelectionModel().getSelectedItem().toString();
 		vystup.appendText("\n----------\n"+prikaz+"\n----------\n");
 		vystup.appendText(hra.zpracujPrikaz(prikaz));
-		
+		prik.getSelectionModel().clearSelection();
 		vstupniText.clear();
 		prik.setDisable(false);
 		vych.setDisable(true);
+		prikaz = null;
+		
+		
+
 		
 	}
 
@@ -278,8 +288,8 @@ public class HomeController extends GridPane implements Observer {
 					 else if(post.equals("Ron")) {
 						 obrazek.setImage(ron.getImage());
 					 }
-					 obrazek.setFitHeight(68);
-					 obrazek.setFitWidth(59);
+					 obrazek.setFitHeight(61);
+					 obrazek.setFitWidth(47);
 					 setText(post);
 					 setGraphic(obrazek);
 				 }
