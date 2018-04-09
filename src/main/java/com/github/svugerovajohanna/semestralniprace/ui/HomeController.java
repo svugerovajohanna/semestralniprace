@@ -56,8 +56,16 @@ public class HomeController extends GridPane implements Observer {
 	private final Image OBR_KLOBOUK = new Image(getClass().getResourceAsStream("moudry_klobouk.png"), 50, 50, false, false);
 	private final Image OBR_KAMEN = new Image(getClass().getResourceAsStream("kamen.png"), 50, 50, false, false);
 	private final Image OBR_KNIHA = new Image(getClass().getResourceAsStream("kniha2.png"), 50, 50, false, false);
+	private final Image 	OBR_STROM = new Image(getClass().getResourceAsStream("strom.png"), 50, 50, false, false);
+	private final Image OBR_KRESLO = new Image(getClass().getResourceAsStream("kreslo.png"), 50, 50, false, false);
+	private final Image OBR_POSTEL = new Image(getClass().getResourceAsStream("postel.png"), 50, 50, false, false);
+	private final Image OBR_OBRAZ = new Image(getClass().getResourceAsStream("obraz.png"), 50, 50, false, false);
+	private final Image OBR_SOCHA = new Image(getClass().getResourceAsStream("socha.png"), 50, 50, false, false);
+	private final Image OBR_STUL = new Image(getClass().getResourceAsStream("stul.png"), 50, 50, false, false);
 	
-	private Image [] listOfImages = {OBR_PLAST, OBR_KOSTE, OBR_PONOZKA, OBR_FLETNA, OBR_KLOBOUK, OBR_KAMEN, OBR_KNIHA};
+	
+	
+	private Image [] listOfImages = {OBR_PLAST, OBR_KOSTE, OBR_PONOZKA, OBR_FLETNA, OBR_KLOBOUK, OBR_KAMEN, OBR_KNIHA, OBR_STROM, OBR_KRESLO, OBR_POSTEL, OBR_OBRAZ, OBR_SOCHA, OBR_STUL};
 	
 	private IHra hra;
 	private String prikaz;
@@ -81,6 +89,64 @@ public class HomeController extends GridPane implements Observer {
 		this.hra = hra;
 		seznamVeci.getItems().clear();
 		seznamVeci.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeciNazev());
+		
+		 seznamVeci.setCellFactory(param -> new ListCell <String>() {
+			 private ImageView obrazek = new ImageView();
+			 @Override
+			 public void updateItem(String vec, boolean empty) {
+				 super.updateItem(vec, empty);
+				 if(empty) {
+					 setText(null);
+					 setGraphic(null);
+				 }
+				 else {
+					 if(vec.equals("neviditelny_plast")) {
+						 obrazek.setImage(listOfImages[0]);
+					 }
+					 else if(vec.equals("letajici_koste")) {
+						 obrazek.setImage(listOfImages[1]);
+					 }
+					 else if (vec.equals("Nevillova_ponozka")) {
+						 obrazek.setImage(listOfImages[2]);
+					 }
+					 else if(vec.equals("fletna")) {
+						 obrazek.setImage(listOfImages[3]);
+					 }
+					 else if(vec.equals("moudry_klobouk")) {
+						 obrazek.setImage(listOfImages[4]);
+					 }
+					 else if(vec.equals("kaminek")) {
+						 obrazek.setImage(listOfImages[5]);
+					 }
+					 else if(vec.equals("knizka")) {
+						 obrazek.setImage(listOfImages[6]);
+					 }
+					 else if(vec.equals("strom")) {
+						 obrazek.setImage(listOfImages[7]);
+						 
+					 }
+					 else if(vec.equals("kreslo")){
+						obrazek.setImage(listOfImages[8]);
+					 }
+					 else if(vec.equals("postel")) {
+						 obrazek.setImage(listOfImages[9]);
+					 }
+					 else if(vec.equals("obraz")) {
+						 obrazek.setImage(listOfImages[10]);
+					 }
+					 else if(vec.equals("socha")) {
+						 obrazek.setImage(listOfImages[11]);
+					 }
+					 else if(vec.equals("stul")) {
+						 obrazek.setImage(listOfImages[12]);
+					 }
+					 setText(vec);
+					 setGraphic(obrazek);
+				 }
+			 }
+			 
+		 });
+		 
 		seznamVychodu.getItems().clear();
 		seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychodyNazev());
 		seznamPostav.getItems().clear();
@@ -258,6 +324,9 @@ public class HomeController extends GridPane implements Observer {
 		 uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 		 seznamVeci.getItems().clear();
 		 seznamVeci.setItems(veciList);
+		 
+		
+		 
 		 seznamPostav.getItems().clear();
 		 seznamPostav.setItems(postavyList);
 		 
